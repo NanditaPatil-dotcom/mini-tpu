@@ -45,3 +45,17 @@ Each PE maintains an internal accumulator and processes inputs over multiple ste
 * Maintains internal state across computations
 
 This abstraction models the fundamental building block used in parallel computing architectures such as tensor accelerators and neural processing units.
+
+# 4. Dataflow-Based Matrix Computation
+
+To simulate hardware-style computation, a systolic array architecture was implemented.
+
+Instead of computing results directly using nested loops, data is streamed through a grid of processing elements. Each element performs a multiply-accumulate operation while passing data to its neighbors.
+
+### Key characteristics:
+
+* Input values propagate across the grid over multiple cycles
+* Computation emerges from coordinated data movement
+* Partial results accumulate progressively within each processing element
+
+This approach models how specialized accelerators achieve high throughput by leveraging parallelism and structured data flow rather than sequential execution.

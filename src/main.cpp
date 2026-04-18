@@ -1,17 +1,35 @@
 #include <iostream>
-#include "pe.h"
+#include "matrix.h"
+#include "systolic.h"
+
 
 int main() {
-    ProcessingElement pe;
+    int n = 2;
 
-    // simulate multiple cycles
-    pe.setInputs(2, 3);
-    pe.compute();   // acc = 6
+    Matrix A(n, n);
+    Matrix B(n, n);
 
-    pe.setInputs(4, 5);
-    pe.compute();   // acc = 6 + 20 = 26
+    A.randomFill();
+    B.randomFill();
 
-    std::cout << "Accumulated Result: " << pe.getResult() << std::endl;
+    std::cout << "Matrix A:\n";
+    A.print();
+
+    std::cout << "\nMatrix B:\n";
+    B.print();
+
+    // Naive result
+    Matrix C1 = A.multiply(B);
+
+    // Systolic result
+    SystolicArray sa(n);
+    Matrix C2 = sa.run(A, B);
+
+    std::cout << "\nNaive Result:\n";
+    C1.print();
+
+    std::cout << "\nSystolic Result:\n";
+    C2.print();
 
     return 0;
 }
