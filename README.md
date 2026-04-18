@@ -24,10 +24,10 @@ To improve performance, the matrix multiplication logic was refined with attenti
 
 ### a. Loop Reordering
 
-    The original implementation accessed elements of the second matrix column-wise, resulting in poor cache utilization. By reordering the loops, data reuse is improved and memory access becomes more sequential, reducing cache misses.
+  The original implementation accessed elements of the second matrix column-wise, resulting in poor cache utilization. By reordering the loops, data reuse is improved and memory access becomes more sequential, reducing cache misses.
 
 ### b. Blocking (Tiling)
 
-    Matrix multiplication was further optimized using a blocking strategy, where computation is performed on smaller submatrices (tiles). This allows frequently used data to remain in cache, significantly improving performance for larger matrices.
+  Matrix multiplication was further optimized using a blocking strategy, where computation is performed on smaller submatrices (tiles). This allows frequently used data to remain in cache, significantly improving performance for larger matrices.
 
 These optimizations reflect how modern hardware achieves efficiency by minimizing memory latency and maximizing data locality.
