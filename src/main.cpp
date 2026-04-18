@@ -13,10 +13,13 @@ int main() {
     std::cout << "\nMatrix B:\n";
     B.print();
 
-    Matrix C = A.multiply(B);
+    Matrix C1 = A.multiply(B);
+    Matrix C2 = A.multiplyBlocked(B, 2);
 
-    std::cout << "\nResult (A x B):\n";
-    C.print();
+    std::cout << "\nNaive:\n";
+    C1.print();
+    std::cout << "\nBlocked:\n";
+    C2.print();
 
     return 0;
 }

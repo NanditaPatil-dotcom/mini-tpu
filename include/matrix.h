@@ -14,6 +14,7 @@ public:
     void print() const;
 
     Matrix multiply(const Matrix& other) const;
+    Matrix multiplyBlocked(const Matrix& other, int blockSize) const;
 };
 
 #endif
