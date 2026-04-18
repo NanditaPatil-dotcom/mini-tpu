@@ -1,25 +1,17 @@
-#include "matrix.h"
+#include <iostream>
+#include "pe.h"
 
 int main() {
-    Matrix A(2, 3);
-    Matrix B(3, 2);
+    ProcessingElement pe;
 
-    A.randomFill();
-    B.randomFill();
+    // simulate multiple cycles
+    pe.setInputs(2, 3);
+    pe.compute();   // acc = 6
 
-    std::cout << "Matrix A:\n";
-    A.print();
+    pe.setInputs(4, 5);
+    pe.compute();   // acc = 6 + 20 = 26
 
-    std::cout << "\nMatrix B:\n";
-    B.print();
-
-    Matrix C1 = A.multiply(B);
-    Matrix C2 = A.multiplyBlocked(B, 2);
-
-    std::cout << "\nNaive:\n";
-    C1.print();
-    std::cout << "\nBlocked:\n";
-    C2.print();
+    std::cout << "Accumulated Result: " << pe.getResult() << std::endl;
 
     return 0;
 }

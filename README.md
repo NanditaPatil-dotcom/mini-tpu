@@ -31,3 +31,17 @@ To improve performance, the matrix multiplication logic was refined with attenti
   Matrix multiplication was further optimized using a blocking strategy, where computation is performed on smaller submatrices (tiles). This allows frequently used data to remain in cache, significantly improving performance for larger matrices.
 
 These optimizations reflect how modern hardware achieves efficiency by minimizing memory latency and maximizing data locality.
+
+# 3. Processing Element (Compute Unit)
+
+The core computational unit is implemented as a Processing Element (PE), which performs a simple multiply-accumulate (MAC) operation.
+
+Each PE maintains an internal accumulator and processes inputs over multiple steps, simulating how hardware units operate across clock cycles.
+
+### Key characteristics:
+
+* Accepts two inputs and multiplies them
+* Accumulates results over time instead of producing immediate outputs
+* Maintains internal state across computations
+
+This abstraction models the fundamental building block used in parallel computing architectures such as tensor accelerators and neural processing units.
